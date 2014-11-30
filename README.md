@@ -1,4 +1,4 @@
 NERO
 ====
 
-Northglenn Educational Resource Organizer
+Northglenn Educational Resource Organizer for Android Devices
