@@ -19,7 +19,7 @@ Repeat:
 8. Save files/changes to cloned folder named after repository
 9. Do "git add -A" to add all files or "git add <filename>" while in correct directory
 10. Do "git commit -m "<whatever the change was>""(must have quotes around it)
-	If you forget the "-m" or endquote do "esc" and type ":wj" to escape
+     If you forget the "-m" or endquote do "esc" and type ":wj" to escape
 11. Do "git push" (you may need to type password and username)
 12. Do "git pull" every few hours while working to update your repository with the master
 13. GOTO Repeat
