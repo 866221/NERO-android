@@ -11,7 +11,8 @@ Instructions for Git:
 3. Tell Caleb that account info
 4. Open shell
 5. Do "git clone <clone link>" (This will copy the online directory to your computer)
-
+   Android clone link: https://github.com/866221/NERO-android.git
+   iOS clone link: https://github.com/866221/NERO-ios.git
 Repeat:
 5.5. Repeat step 4
 6. Navigate to cloned directory with "cd <repository name>"
