@@ -1,65 +1,103 @@
 package com.coding.nero;
 
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends FragmentActivity {
 
+    ViewPager viewPager=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
-        }
+        viewPager= (ViewPager) findViewById(R.id.pager);
+        FragmentManager fragmentManager=getSupportFragmentManager();
+        viewPager.setAdapter(new MyAdapter(fragmentManager));
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
+    /**
+     * Created by John on 12/5/14.
+     */
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+    //Links class to layout file fragment_a
+    public static class FragmentA extends Fragment {
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            return inflater.inflate(R.layout.fragment_a, container, false);
         }
-        return super.onOptionsItemSelected(item);
     }
 
     /**
-     * A placeholder fragment containing a simple view.
+     * Created by John on 12/5/14.
      */
-    public static class PlaceholderFragment extends Fragment {
 
-        public PlaceholderFragment() {
-        }
-
+    //Links class to layout file fragment_a
+    public static class FragmentB extends Fragment {
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            return rootView;
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            return inflater.inflate(R.layout.fragment_a, container, false);
         }
     }
 
+    /**
+     * Created by John on 12/5/14.
+     */
+
+    //Links class to layout file fragment_a
+    public static class FragmentC extends Fragment {
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            return inflater.inflate(R.layout.fragment_a, container, false);
+        }
+    }
+
+    /**
+     * Created by John on 12/5/14.
+     */
+
+    //Links class to layout file fragment_a
+    public static class FragmentD extends Fragment {
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            return inflater.inflate(R.layout.fragment_d, container, false);
+        }
+    }
+}
+
+class MyAdapter extends FragmentPagerAdapter{
+
+    public MyAdapter(FragmentManager fm) {
+        super(fm);
+    }
+
+    @Override
+    public Fragment getItem(int i) {
+        Fragment fragment=null;
+        if(i==0){
+            fragment=new MainActivity.FragmentA();
+        }
+        if(i==1){
+            fragment=new MainActivity.FragmentB();
+        }
+        if(i==2){
+            fragment=new MainActivity.FragmentC();
+        }
+        if(i==3){
+            fragment=new MainActivity.FragmentD();
+        }
+        return null;
+    }
+
+    @Override
+    public int getCount() {
+        return 4;
+    }
 }
