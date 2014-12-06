@@ -82,16 +82,16 @@ class MyAdapter extends FragmentPagerAdapter{
     public Fragment getItem(int i) {
         Fragment fragment=null;
         if(i==0){
-            fragment=new MainActivity.FragmentA();
+            fragment=new FragmentA_1();
         }
         if(i==1){
-            fragment=new MainActivity.FragmentB();
+            fragment=new FragmentB_1();
         }
         if(i==2){
-            fragment=new MainActivity.FragmentC();
+            fragment=new FragmentC_1();
         }
         if(i==3){
-            fragment=new MainActivity.FragmentD();
+            fragment=new FragmentD_1();
         }
         return null;
     }
