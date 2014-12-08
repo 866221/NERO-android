@@ -93,11 +93,11 @@ class MyAdapter extends FragmentPagerAdapter{
         if(i==3){
             fragment=new FragmentD_1();
         }
-        return null;
+        return fragment;
     }
 
     @Override
     public int getCount() {
-        return 4;
+        return (4);
     }
 }
