@@ -1,5 +1,6 @@
 package com.coding.nero;
 
+import android.app.FragmentTransaction;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -9,8 +10,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.app.ActionBar;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 
     ViewPager viewPager=null;
     @Override
@@ -20,6 +22,27 @@ public class MainActivity extends FragmentActivity {
         viewPager= (ViewPager) findViewById(R.id.pager);
         FragmentManager fragmentManager=getSupportFragmentManager();
         viewPager.setAdapter(new MyAdapter(fragmentManager));
+        final ActionBar actionBar = getActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+        ActionBar.Tab tab1=actionBar.newTab();
+        tab1.setText("Tab1");
+        tab1.setTabListener(this);
+    }
+
+    @Override
+    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+
+    }
+
+    @Override
+    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+
+    }
+
+    @Override
+    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+
     }
 
 
@@ -100,4 +123,6 @@ class MyAdapter extends FragmentPagerAdapter{
     public int getCount() {
         return (4);
     }
+
+
 }
